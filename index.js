@@ -17,7 +17,7 @@ const managerPrompts = [
         return true;
 
       } else {
-        console.log("Make sure to enter your manager's name.")
+        console.log("Make sure to enter your manager's name.");
         return false;
       }
     }
@@ -25,13 +25,13 @@ const managerPrompts = [
   {
     type: 'number',
     name: 'id',
-    message: 'Could you please enter the ID of your manager?',
+    message: 'Could you please enter the ID number of your manager?',
     validate: managerId => {
       if (managerId) {
         return true;
     
       } else {
-        console.log("Make sure to enter the ID of your manager.")
+        console.log("Make sure to enter the ID number of your manager.");
         return false;
       }
     }
@@ -45,7 +45,7 @@ const managerPrompts = [
         return true;
     
       } else {
-        console.log("Make sure to enter the email address of your manager.")
+        console.log("Make sure to enter the email address of your manager.");
         return false;
       }
     }
@@ -59,7 +59,7 @@ const managerPrompts = [
         return true;
     
       } else {
-        console.log("Make sure to enter the office number of your manager.")
+        console.log("Make sure to enter the office number of your manager.");
         return false;
       }
     }
@@ -68,6 +68,132 @@ const managerPrompts = [
 
 const employeePrompt = [
   {
-    type: 'list'
+    type: 'list',
+    name: 'addNewEmployee',
+    message: 'Do you want to add an Engineer or Intern to your team?',
+    choices: [
+      "Yes, add an Engineer to my team.",
+      "Yes, add an Intern to my team.",
+      "No, my team is complete."
+    ]
   }
 ]
+
+const engineerPrompts = [
+  {
+    type: 'input',
+    name: 'name',
+    message: 'What is the name of this engineer?',
+    validate: engineerName => {
+      if (engineerName) {
+        return true;
+    
+      } else {
+        console.log("Make sure to enter the name of this engineer.");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'number',
+    name: 'id',
+    message: 'Could you please enter the ID number of this engineer?',
+    validate: engineerId => {
+      if (engineerId) {
+        return true;
+    
+      } else {
+        console.log("Make sure to enter the ID number of this engineer.");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'Could you please enter the email address of this engineer?',
+    validate: engineerEmail => {
+      if (engineerEmail) {
+        return true;
+    
+      } else {
+        console.log("Make sure to enter the email address of this engineer.");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'github',
+    message: 'Could you please enter the GitHub username of this engineer?',
+    validate: engineerGit => {
+      if (engineerGit) {
+        return true;
+    
+      } else {
+        console.log("Make sure to enter the GitHub username of this engineer.");
+        return false;
+      }
+    }
+  },
+]
+
+const internPrompts = [
+  {
+    type: 'input',
+    name: 'name',
+    message: 'What is the name of this intern?',
+    validate: internName => {
+      if (internName) {
+        return true;
+    
+      } else {
+        console.log("Make sure to enter the name of this intern.");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'number',
+    name: 'id',
+    message: 'Could you please enter the ID number of this intern?',
+    validate: internId => {
+      if (internId) {
+        return true;
+    
+      } else {
+        console.log("Make sure to enter the ID number of this intern.");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'Could you please enter the email address of this intern?',
+    validate: internEmail => {
+      if (internEmail) {
+        return true;
+    
+      } else {
+        console.log("Make sure to enter the email address of this intern.");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'school',
+    message: 'Could you please enter the school name that this intern attended?',
+    validate: internSchool => {
+      if (internSchool) {
+        return true;
+    
+      } else {
+        console.log("Make sure to enter the school name that this intern attended.");
+        return false;
+      }
+    }
+  },
+]
+
