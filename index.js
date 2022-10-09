@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
-const Intern = require(".lib/Intern");
+const Intern = require("./lib/Intern");
 employeeArray = [];
 
 const managerPrompts = [
@@ -197,3 +197,9 @@ const internPrompts = [
   },
 ]
 
+const addManager = async() => {
+  const managerOutcome = await inquirer.prompt(managerPrompts)
+  console.log(managerOutcome);
+}
+
+addManager();
