@@ -213,14 +213,20 @@ const addManager = async() => {
 
 const addNewEmployee = async() => {
   const employeeOutcome = await inquirer.prompt(employeePrompt)
-
+  
   .then(function(employeeOutcome) {
-    if (employeeOutcome.addNewEmployee === "Yes, add an Engineer to my team.") {
-      addEngineer();
-    } else if (employeeOutcome === "Yes, add an Intern to my team.") {
-      addIntern();
-    } else {
-      createFile(employeeArray);
+    switch (employeeOutcome.addNewEmployee) {
+      case "Yes, add an Engineer to my team.":
+        addEngineer();
+        break;
+      
+      case "Yes, add an Intern to my team.":
+        addIntern();
+        break;
+        
+      case "No, my team is complete.":
+        createFile(employeeArray);
+        break; 
     }
   })
 }
@@ -236,7 +242,7 @@ const addEngineer = async() => {
   );
 
   employeeArray.push(newEngineer);
-  addNewEmployee;
+  addNewEmployee();
 }
 
 const addIntern = async() => {

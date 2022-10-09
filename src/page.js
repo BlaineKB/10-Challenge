@@ -18,7 +18,7 @@ const page = function(employeeArray) {
     <body>
       <div class="container-fluid align-items-center border-light">
         <div class="row bg-secondary text-center">
-          <h2 class="text-dark p-5">Team:</h2>
+          <h2 class="text-dark p-5">Team</h2>
         </div>
         <div class="row g-2 justify-content-around p-4">
   `;
