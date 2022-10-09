@@ -199,7 +199,58 @@ const internPrompts = [
 
 const addManager = async() => {
   const managerOutcome = await inquirer.prompt(managerPrompts)
-  console.log(managerOutcome);
+  
+  const newManager = new Manager(
+    managerOutcome.name,
+    managerOutcome.id,
+    managerOutcome.email,
+    managerOutcome.officeNumber
+  );
+
+  employeeArray.push(newManager);
+  addNewEmployee();
+};
+
+const addNewEmployee = async() => {
+  const employeeOutcome = await inquirer.prompt(employeePrompt)
+
+  .then(function(employeeOutcome) {
+    if (employeeOutcome.addNewEmployee === "Yes, add an Engineer to my team.") {
+      addEngineer();
+    } else if (employeeOutcome === "Yes, add an Intern to my team.") {
+      addIntern();
+    } else {
+      createFile(employeeArray);
+    }
+  })
+}
+
+const addEngineer = async() => {
+  const engineerOutcome = await inquirer.prompt(engineerPrompts)
+
+  const newEngineer = new Engineer(
+    engineerOutcome.name,
+    engineerOutcome.id,
+    engineerOutcome.email,
+    engineerOutcome.github
+  );
+
+  employeeArray.push(newEngineer);
+  addNewEmployee;
+}
+
+const addIntern = async() => {
+  const internOutcome = await inquirer.prompt(internPrompts)
+
+  const newIntern = new Intern(
+    internOutcome.name,
+    internOutcome.id,
+    internOutcome.email,
+    internOutcome.school
+  )
+
+  employeeArray.push(newIntern)
+  addNewEmployee();
 }
 
 addManager();
