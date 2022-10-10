@@ -2,6 +2,7 @@ const Manager = require("../lib/Manager");
 const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
 
+// Function that generates a html page template with the accompanying elements
 const page = function(employeeArray) {
   const teamHtmlArray = [];
   const headHtml = `
@@ -25,6 +26,7 @@ const page = function(employeeArray) {
 
   teamHtmlArray.push(headHtml)
 
+    // For loop that iterates through the new employeeArray and adds the new data to the html page
     for (let i = 0; i < employeeArray.length; i++) {
       teamHtmlArray.push(employeeArray[i].addHtml());
     }

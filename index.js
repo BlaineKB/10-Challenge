@@ -1,3 +1,4 @@
+// Packages and files needed
 const inquirer = require("inquirer");
 const { createFile } = require("./src/generatePage.js");
 const fs = require("fs");
@@ -7,6 +8,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 employeeArray = [];
 
+// Inquirer prompts packaged as objects in an array
 const managerPrompts = [
   {
     type: 'input',
@@ -197,6 +199,7 @@ const internPrompts = [
   },
 ]
 
+// Function that takes the results from the manager prompts and creates a new instance of the Manager object. Then this new object is passed into the employeeArray and calls the addNewEmployee function
 const addManager = async() => {
   const managerOutcome = await inquirer.prompt(managerPrompts)
   
@@ -211,6 +214,7 @@ const addManager = async() => {
   addNewEmployee();
 };
 
+// Function that uses switch cases to call addEngineer, addIntern, or createFile functions depending on the choice selected from the employee prompt
 const addNewEmployee = async() => {
   const employeeOutcome = await inquirer.prompt(employeePrompt)
   
@@ -231,6 +235,7 @@ const addNewEmployee = async() => {
   })
 }
 
+// Function that takes the results from the engineerPrompts and creates a new instance of the Engineer object. Then this new object is passed into the employeeArray and calls the addNewEmployee function
 const addEngineer = async() => {
   const engineerOutcome = await inquirer.prompt(engineerPrompts)
 
@@ -245,6 +250,7 @@ const addEngineer = async() => {
   addNewEmployee();
 }
 
+// Function that takes the results from the internPrompts and creates a new instance of the Intern object. Then this new object is passed into the employeeArray and calls the addNewEmployee function
 const addIntern = async() => {
   const internOutcome = await inquirer.prompt(internPrompts)
 
@@ -259,4 +265,5 @@ const addIntern = async() => {
   addNewEmployee();
 }
 
+// Calls addManager function to begin prompts
 addManager();
